@@ -22,6 +22,11 @@ public class Test {
 
 public class TestRunner: Object {
 	private ArrayList<Test> tests = new ArrayList<Test>();
+	private Reporter reporter;
+	
+	public TestRunner(Reporter reporter) {
+		this.reporter = reporter;
+	}
 	
 	public void add_test(TestFunction test, string test_name) {
 		this.tests.add(new Test(test, test_name));
@@ -29,11 +34,11 @@ public class TestRunner: Object {
 	
 	public void run() {
 		foreach (Test test in this.tests) {
-		    stdout.printf("%s\n", test.get_test_name());
 			try {
 			    test.run();
+			    reporter.success(test);
 			} catch (AssertionError error) {
-			    stderr.printf("%s\n", error.message);
+				reporter.failure(test, error.message);
 			}//try
 		}//foreach
 	}//run
