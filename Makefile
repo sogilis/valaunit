@@ -1,5 +1,5 @@
 all:
-	valac -o run-tests *.vala --pkg gee-0.8
+	valac -o run-tests *.vala --pkg gee-1.0
 	./run-tests
 
 clean:
