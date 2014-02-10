@@ -1,10 +1,11 @@
-class Test1 : GLib.Object {
 
-    public int run() {
+public int test1_run() {
 
-        stdout.printf("Test1\n");
+    assert_true(false, "Failure test");
+    assert_true(true, "True test");
+    assert_true(false, "Failure test 2");
 
-        return 0;
-    }//run
+    return 0;
+}//test1_run
 
-}//Test1
+
