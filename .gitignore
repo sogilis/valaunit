@@ -1,3 +1,7 @@
-run-tests
+examples/run-tests
 *~
+*.vapi
+*.so
+*.h
+*.c
 
